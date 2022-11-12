@@ -24,4 +24,16 @@ public class TaskController {
     public ArrayList<Task> getAllTasks(){
         return taskServices.getAllTasks();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable int id){
+        taskServices.deleteTaskById(id);
+    }
+
+
+    // http://localhost:8080/task/' + id
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable int id){
+        return taskServices.getTaskById(id);
+    }
 }

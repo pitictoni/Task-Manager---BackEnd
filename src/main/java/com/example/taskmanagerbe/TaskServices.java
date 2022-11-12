@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskServices {
@@ -25,5 +26,13 @@ public class TaskServices {
 
     public ArrayList<Task> getAllTasks() {
         return (ArrayList<Task>) taskRepository.findAll();
+    }
+
+    public void deleteTaskById(int id) {
+        taskRepository.deleteById(id);
+    }
+
+    public Task getTaskById(int id) {
+        return taskRepository.findById(id).get();
     }
 }
