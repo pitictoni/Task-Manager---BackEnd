@@ -43,4 +43,9 @@ public class TaskServices {
 
         taskRepository.save(t);
     }
+
+    public void addTask(String title, int priority) {
+        Task task = new Task(title,priority);
+        taskRepository.save(task);
+    }
 }

@@ -42,4 +42,11 @@ public class TaskController {
     public void updateTask(@RequestParam("id") int id,  @RequestParam("title") String title, @RequestParam("priority") int priority){
         taskServices.updateTask(id, title,priority);
     }
+
+
+    //http://localhost:8080/task/add?title=' + title + "&priority=" + priority
+    @PostMapping(value = "/add", params = {"title", "priority"})
+    public void addTask( @RequestParam("title") String title, @RequestParam("priority") int priority){
+        taskServices.addTask(title,priority);
+    }
 }
