@@ -35,4 +35,12 @@ public class TaskServices {
     public Task getTaskById(int id) {
         return taskRepository.findById(id).get();
     }
+
+    public void updateTask(int id, String title, int priority) {
+        Task t = taskRepository.findById(id).get();
+        t.setTitle(title);
+        t.setPriority(priority);
+
+        taskRepository.save(t);
+    }
 }

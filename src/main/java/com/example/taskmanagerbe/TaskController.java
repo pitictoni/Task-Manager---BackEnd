@@ -36,4 +36,10 @@ public class TaskController {
     public Task getTaskById(@PathVariable int id){
         return taskServices.getTaskById(id);
     }
+
+    // http://localhost:8080/task/update?id=' + id + "&title" + title + "&priority" + priority
+    @PutMapping(value = "/update",params = {"id", "title", "priority"})
+    public void updateTask(@RequestParam("id") int id,  @RequestParam("title") String title, @RequestParam("priority") int priority){
+        taskServices.updateTask(id, title,priority);
+    }
 }
